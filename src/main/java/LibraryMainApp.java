@@ -3,9 +3,10 @@ public class LibraryMainApp {
         try{
             Book b1 = new Book(1, "Горе от ума");
             Book b2 = new Book(2, "Сказка о царе Салтане");
+            Book b2_copy = new Book(2, "Сказка о царе Салтане");
             Book b3 = new Book(3, "Человек-амфибия");
             Book b4 = new Book(4, "Мертвые души");
-            StudentLibrary studentLibrary = StudentLibrary.getInstance();
+            StudentLibrary studentLibrary = new StudentLibrary();
             studentLibrary.addNewBook(b1);
             studentLibrary.addNewBook(b2);
             studentLibrary.addNewBook(b3);
@@ -13,13 +14,14 @@ public class LibraryMainApp {
             System.out.println(studentLibrary.findAvailableBooks());
             studentLibrary.borrowBook(b2, "Sam");
             System.out.println(studentLibrary.findAvailableBooks());
-            studentLibrary.returnBook(b2, "Sam");
+            studentLibrary.returnBook(b2_copy, "Sam");
             System.out.println(studentLibrary.findAvailableBooks());
             studentLibrary.returnBook(b4, "Sam");
             System.out.println(studentLibrary.findAvailableBooks());
         }
         catch (Exception e){
             System.out.println(e.getMessage());
+            //e.printStackTrace();
         }
 
     }
